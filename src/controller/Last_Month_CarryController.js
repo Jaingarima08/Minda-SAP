@@ -90,6 +90,7 @@ const fetchAndStoreLastMonthCarry = async (req, res) => {
         Kursk: convertToDecimal(item?.Kursk),
         Bzirk: String(item?.Bzirk || ""),
         Zone: String(item?.Zone || ""),
+        MonthD: String(item?.MonthD || ""),
       };
     }).filter(Boolean); // Remove null entries
 

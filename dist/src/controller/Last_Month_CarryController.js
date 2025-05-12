@@ -1,1 +1,264 @@
-const a3_0x353b2d=a3_0x7f64;function a3_0x7f64(_0x3d5902,_0x16cc32){const _0x2758db=a3_0x2758();return a3_0x7f64=function(_0x7f6464,_0x48f063){_0x7f6464=_0x7f6464-0x115;let _0x106988=_0x2758db[_0x7f6464];return _0x106988;},a3_0x7f64(_0x3d5902,_0x16cc32);}(function(_0x7b4e28,_0xf83b9e){const _0x19cdd3=a3_0x7f64,_0x35aabe=_0x7b4e28();while(!![]){try{const _0x331097=parseInt(_0x19cdd3(0x118))/0x1+parseInt(_0x19cdd3(0x14a))/0x2+-parseInt(_0x19cdd3(0x155))/0x3*(-parseInt(_0x19cdd3(0x130))/0x4)+parseInt(_0x19cdd3(0x15d))/0x5*(parseInt(_0x19cdd3(0x13d))/0x6)+parseInt(_0x19cdd3(0x136))/0x7+-parseInt(_0x19cdd3(0x13c))/0x8+-parseInt(_0x19cdd3(0x135))/0x9*(parseInt(_0x19cdd3(0x14f))/0xa);if(_0x331097===_0xf83b9e)break;else _0x35aabe['push'](_0x35aabe['shift']());}catch(_0x591929){_0x35aabe['push'](_0x35aabe['shift']());}}}(a3_0x2758,0x47f58));const axios=require(a3_0x353b2d(0x143)),{insertOrUpdateLastMonthCarry}=require('../models/Last_Month_CarryModel');require(a3_0x353b2d(0x133))[a3_0x353b2d(0x145)]();function a3_0x2758(){const _0x4f30f9=['object','stringify','55730ecebMx','SAP_USERNAME','length','warn','Kwmeng','Gjahr','770343xMrHat','filter','OdrVal','❌\x20Skipping\x20invalid\x20record\x20at\x20index\x20','Invalid\x20data\x20format\x20received\x20from\x20SAP','✅\x20API\x20Response\x20Received.\x20Length:','status','slice','365GOHjtp','Empty\x20response\x20from\x20API','Kunnr','❌\x20Error\x20fetching\x20Last\x20Month\x20Carry\x20data:','532735qgfKAm','Aupos','Error\x20inserting\x20or\x20updating\x20data','success','Fktyp','❌\x20Error\x20syncing\x20data:','📌\x20Final\x20Processed\x20Data:','SAP\x20API\x20Error:\x20','No\x20Last\x20Month\x20Carry\x20data\x20found\x20in\x20SAP','Zone','✅\x20Last\x20Month\x20Carry\x20Data\x20Sync\x20Completed\x20Successfully','Bzirk','message','data','🚀\x20Starting\x20Last\x20Month\x20Carry\x20Data\x20Sync...','\x20records','Waerk','⚠️\x20Received\x20empty\x20response\x20from\x20API','Fkart','map','exports','log','📦\x20Received\x20','json','4PRLtxQ','isArray','Posnr','dotenv','📌\x20API\x20Response\x20Data:','2493Fhmlti','3998204lEWQnP','Vbeln','PendingQty','env','🔍\x20Fetching\x20Last\x20Month\x20Carry\x20Data\x20from\x20API:','Vtweg','1071696cnuomB','22866EBMKJf','processedRows','application/json','error','failedRows','get','axios','Database\x20error','config','replace','📦\x20Processing\x20','results','Last_Month_API','667072TUKhFW','\x20records...','Vkorg'];a3_0x2758=function(){return _0x4f30f9;};return a3_0x2758();}const API_URL=process[a3_0x353b2d(0x139)][a3_0x353b2d(0x149)],convertToDecimal=_0x2d36c1=>{const _0x5b4a1b=a3_0x353b2d;if(!_0x2d36c1||isNaN(_0x2d36c1))return 0x0;return parseFloat(_0x2d36c1['toString']()[_0x5b4a1b(0x146)](',','.'));},fetchSAPLastMonthCarry=async()=>{const _0x1620e5=a3_0x353b2d;try{console[_0x1620e5(0x12d)](_0x1620e5(0x13a),API_URL);const _0x25d9d2=await axios[_0x1620e5(0x142)](API_URL,{'auth':{'username':process[_0x1620e5(0x139)][_0x1620e5(0x150)],'password':process[_0x1620e5(0x139)]['SAP_PASSWORD']},'headers':{'Accept':_0x1620e5(0x13f)},'responseType':_0x1620e5(0x12f)});if(!_0x25d9d2[_0x1620e5(0x125)]){console['warn'](_0x1620e5(0x129));throw new Error(_0x1620e5(0x115));}console[_0x1620e5(0x12d)](_0x1620e5(0x15a),JSON[_0x1620e5(0x14e)](_0x25d9d2[_0x1620e5(0x125)])[_0x1620e5(0x151)]),console[_0x1620e5(0x12d)](_0x1620e5(0x134),JSON['stringify'](_0x25d9d2['data'],null,0x2));if(!_0x25d9d2[_0x1620e5(0x125)]['d']||!Array[_0x1620e5(0x131)](_0x25d9d2[_0x1620e5(0x125)]['d'][_0x1620e5(0x148)])){console[_0x1620e5(0x140)]('❌\x20Invalid\x20API\x20Response\x20Format:',JSON[_0x1620e5(0x14e)](_0x25d9d2['data'])[_0x1620e5(0x15c)](0x0,0xc8));throw new Error(_0x1620e5(0x159));}const _0x4b43fa=_0x25d9d2[_0x1620e5(0x125)]['d'][_0x1620e5(0x148)]||[];return console[_0x1620e5(0x12d)](_0x1620e5(0x12e)+_0x4b43fa['length']+_0x1620e5(0x127)),_0x4b43fa;}catch(_0x217ffd){console[_0x1620e5(0x140)](_0x1620e5(0x117),_0x217ffd['message']);throw new Error(_0x1620e5(0x11f)+_0x217ffd[_0x1620e5(0x124)]);}},fetchAndStoreLastMonthCarry=async(_0x58d53d,_0x5ead39)=>{const _0x5229c1=a3_0x353b2d;try{console[_0x5229c1(0x12d)](_0x5229c1(0x126));const _0x5525ba=await fetchSAPLastMonthCarry();if(!Array[_0x5229c1(0x131)](_0x5525ba)||_0x5525ba['length']===0x0){console[_0x5229c1(0x152)]('⚠️\x20No\x20valid\x20last\x20month\x20carry\x20data\x20received.');if(_0x5ead39)return _0x5ead39['status'](0x190)['json']({'message':_0x5229c1(0x120)});return;}console[_0x5229c1(0x12d)](_0x5229c1(0x147)+_0x5525ba['length']+_0x5229c1(0x14b));const _0x19088a=_0x5525ba[_0x5229c1(0x12b)]((_0x4b6899,_0x2bc950)=>{const _0x122409=_0x5229c1;if(!_0x4b6899||typeof _0x4b6899!=='object')return console[_0x122409(0x140)](_0x122409(0x158)+_0x2bc950+':',_0x4b6899),null;return{'Vbeln':String(_0x4b6899?.[_0x122409(0x137)]||''),'Posnr':String(_0x4b6899?.[_0x122409(0x132)]||''),'Vtweg':String(_0x4b6899?.[_0x122409(0x13b)]||''),'Spart':String(_0x4b6899?.['Spart']||''),'Fkart':String(_0x4b6899?.[_0x122409(0x12a)]||''),'Fktyp':String(_0x4b6899?.[_0x122409(0x11c)]||''),'Vkorg':String(_0x4b6899?.[_0x122409(0x14c)]||''),'Waerk':String(_0x4b6899?.[_0x122409(0x128)]||''),'Gjahr':String(_0x4b6899?.[_0x122409(0x154)]||''),'Aubel':String(_0x4b6899?.['Aubel']||''),'Aupos':String(_0x4b6899?.[_0x122409(0x119)]||''),'Netwr':convertToDecimal(_0x4b6899?.['Netwr']),'Matnr':String(_0x4b6899?.['Matnr']||''),'Fkimg':convertToDecimal(_0x4b6899?.['Fkimg']),'Matkl':String(_0x4b6899?.['Matkl']||''),'Kwmeng':convertToDecimal(_0x4b6899?.[_0x122409(0x153)]),'PendingQty':convertToDecimal(_0x4b6899?.[_0x122409(0x138)]),'OdrVal':convertToDecimal(_0x4b6899?.[_0x122409(0x157)]),'Kunnr':String(_0x4b6899?.[_0x122409(0x116)]||''),'Kursk':convertToDecimal(_0x4b6899?.['Kursk']),'Bzirk':String(_0x4b6899?.[_0x122409(0x123)]||''),'Zone':String(_0x4b6899?.[_0x122409(0x121)]||'')};})[_0x5229c1(0x156)](Boolean);console[_0x5229c1(0x12d)](_0x5229c1(0x11e),JSON['stringify'](_0x19088a,null,0x2));const _0x5856ee=await insertOrUpdateLastMonthCarry(_0x19088a);if(!_0x5856ee||typeof _0x5856ee!==_0x5229c1(0x14d)||!_0x5856ee[_0x5229c1(0x11b)]){console[_0x5229c1(0x140)]('❌\x20Error\x20inserting\x20or\x20updating\x20data:',_0x5856ee?.[_0x5229c1(0x140)]||'Unknown\x20error');if(_0x5ead39)return _0x5ead39[_0x5229c1(0x15b)](0x1f4)[_0x5229c1(0x12f)]({'message':_0x5229c1(0x11a),'error':_0x5856ee?.[_0x5229c1(0x140)]||_0x5229c1(0x144)});return;}console[_0x5229c1(0x12d)](_0x5229c1(0x122));if(_0x5ead39)return _0x5ead39['status'](0xc8)['json']({'message':'✅\x20Last\x20month\x20carry\x20data\x20synced\x20successfully','insertedRows':_0x5856ee[_0x5229c1(0x13e)][_0x5229c1(0x151)],'updatedRows':_0x5856ee['processedRows']['length'],'failedRows':_0x5856ee[_0x5229c1(0x141)][_0x5229c1(0x151)],'errors':_0x5856ee[_0x5229c1(0x141)]});}catch(_0x538177){console[_0x5229c1(0x140)](_0x5229c1(0x11d),_0x538177[_0x5229c1(0x124)]);if(_0x5ead39)return _0x5ead39[_0x5229c1(0x15b)](0x1f4)[_0x5229c1(0x12f)]({'message':'Internal\x20Server\x20Error','error':_0x538177[_0x5229c1(0x124)]});}};module[a3_0x353b2d(0x12c)]={'fetchAndStoreLastMonthCarry':fetchAndStoreLastMonthCarry};
+const a3_0x4e5609 = a3_0x52b8;
+(function (_0x1b9533, _0x48a2bd) {
+  const _0x5390b0 = a3_0x52b8,
+    _0x8b0a01 = _0x1b9533();
+  while (!![]) {
+    try {
+      const _0x55955e =
+        (parseInt(_0x5390b0(0x13a)) / 0x1) *
+          (-parseInt(_0x5390b0(0x139)) / 0x2) +
+        -parseInt(_0x5390b0(0x114)) / 0x3 +
+        -parseInt(_0x5390b0(0x12a)) / 0x4 +
+        -parseInt(_0x5390b0(0x11c)) / 0x5 +
+        parseInt(_0x5390b0(0x120)) / 0x6 +
+        parseInt(_0x5390b0(0x126)) / 0x7 +
+        parseInt(_0x5390b0(0x121)) / 0x8;
+      if (_0x55955e === _0x48a2bd) break;
+      else _0x8b0a01["push"](_0x8b0a01["shift"]());
+    } catch (_0x533c99) {
+      _0x8b0a01["push"](_0x8b0a01["shift"]());
+    }
+  }
+})(a3_0x480a, 0x388bd);
+const axios = require(a3_0x4e5609(0x142)),
+  { insertOrUpdateLastMonthCarry } = require("../models/Last_Month_CarryModel");
+function a3_0x52b8(_0x2e7383, _0x1db504) {
+  const _0x480a07 = a3_0x480a();
+  return (
+    (a3_0x52b8 = function (_0x52b859, _0x53152) {
+      _0x52b859 = _0x52b859 - 0x114;
+      let _0xa43439 = _0x480a07[_0x52b859];
+      return _0xa43439;
+    }),
+    a3_0x52b8(_0x2e7383, _0x1db504)
+  );
+}
+function a3_0x480a() {
+  const _0x259469 = [
+    "Waerk",
+    "filter",
+    "SAP_PASSWORD",
+    "Aupos",
+    "slice",
+    "replace",
+    "Last_Month_API",
+    "env",
+    "❌\x20Error\x20inserting\x20or\x20updating\x20data:",
+    "2DOHYFu",
+    "55673cdkzQR",
+    "get",
+    "Kunnr",
+    "Kursk",
+    "Vbeln",
+    "message",
+    "toString",
+    "application/json",
+    "axios",
+    "results",
+    "Vtweg",
+    "📦\x20Received\x20",
+    "❌\x20Invalid\x20API\x20Response\x20Format:",
+    "SAP\x20API\x20Error:\x20",
+    "📌\x20API\x20Response\x20Data:",
+    "Bzirk",
+    "Fkart",
+    "⚠️\x20No\x20valid\x20last\x20month\x20carry\x20data\x20received.",
+    "SAP_USERNAME",
+    "stringify",
+    "Internal\x20Server\x20Error",
+    "MonthD",
+    "✅\x20Last\x20month\x20carry\x20data\x20synced\x20successfully",
+    "error",
+    "Gjahr",
+    "❌\x20Error\x20fetching\x20Last\x20Month\x20Carry\x20data:",
+    "Spart",
+    "No\x20Last\x20Month\x20Carry\x20data\x20found\x20in\x20SAP",
+    "length",
+    "Database\x20error",
+    "845778AGDCZX",
+    "Zone",
+    "Netwr",
+    "exports",
+    "warn",
+    "log",
+    "Error\x20inserting\x20or\x20updating\x20data",
+    "📦\x20Processing\x20",
+    "1272970bGxcgj",
+    "❌\x20Error\x20syncing\x20data:",
+    "Matnr",
+    "status",
+    "1304280UmGRqS",
+    "5736432vLqBjh",
+    "json",
+    "processedRows",
+    "Fktyp",
+    "data",
+    "1485106xqhbJB",
+    "🔍\x20Fetching\x20Last\x20Month\x20Carry\x20Data\x20from\x20API:",
+    "object",
+    "config",
+    "1291144BNUZkp",
+    "\x20records",
+    "failedRows",
+    "Aubel",
+    "Empty\x20response\x20from\x20API",
+    "❌\x20Skipping\x20invalid\x20record\x20at\x20index\x20",
+  ];
+  a3_0x480a = function () {
+    return _0x259469;
+  };
+  return a3_0x480a();
+}
+require("dotenv")[a3_0x4e5609(0x129)]();
+const API_URL = process["env"][a3_0x4e5609(0x136)],
+  convertToDecimal = (_0xe11246) => {
+    const _0x38eaf9 = a3_0x4e5609;
+    if (!_0xe11246 || isNaN(_0xe11246)) return 0x0;
+    return parseFloat(
+      _0xe11246[_0x38eaf9(0x140)]()[_0x38eaf9(0x135)](",", ".")
+    );
+  },
+  fetchSAPLastMonthCarry = async () => {
+    const _0x2cc390 = a3_0x4e5609;
+    try {
+      console[_0x2cc390(0x119)](_0x2cc390(0x127), API_URL);
+      const _0xc7a5f6 = await axios[_0x2cc390(0x13b)](API_URL, {
+        auth: {
+          username: process[_0x2cc390(0x137)][_0x2cc390(0x14c)],
+          password: process[_0x2cc390(0x137)][_0x2cc390(0x132)],
+        },
+        headers: { Accept: _0x2cc390(0x141) },
+        responseType: _0x2cc390(0x122),
+      });
+      if (!_0xc7a5f6[_0x2cc390(0x125)]) {
+        console[_0x2cc390(0x118)](
+          "⚠️\x20Received\x20empty\x20response\x20from\x20API"
+        );
+        throw new Error(_0x2cc390(0x12e));
+      }
+      console[_0x2cc390(0x119)](
+        "✅\x20API\x20Response\x20Received.\x20Length:",
+        JSON[_0x2cc390(0x14d)](_0xc7a5f6["data"])[_0x2cc390(0x156)]
+      ),
+        console[_0x2cc390(0x119)](
+          _0x2cc390(0x148),
+          JSON["stringify"](_0xc7a5f6["data"], null, 0x2)
+        );
+      if (
+        !_0xc7a5f6[_0x2cc390(0x125)]["d"] ||
+        !Array["isArray"](_0xc7a5f6[_0x2cc390(0x125)]["d"][_0x2cc390(0x143)])
+      ) {
+        console[_0x2cc390(0x151)](
+          _0x2cc390(0x146),
+          JSON[_0x2cc390(0x14d)](_0xc7a5f6[_0x2cc390(0x125)])[_0x2cc390(0x134)](
+            0x0,
+            0xc8
+          )
+        );
+        throw new Error("Invalid\x20data\x20format\x20received\x20from\x20SAP");
+      }
+      const _0x53ae1d = _0xc7a5f6[_0x2cc390(0x125)]["d"]["results"] || [];
+      return (
+        console[_0x2cc390(0x119)](
+          _0x2cc390(0x145) + _0x53ae1d["length"] + _0x2cc390(0x12b)
+        ),
+        _0x53ae1d
+      );
+    } catch (_0x3e858b) {
+      console[_0x2cc390(0x151)](_0x2cc390(0x153), _0x3e858b["message"]);
+      throw new Error(_0x2cc390(0x147) + _0x3e858b[_0x2cc390(0x13f)]);
+    }
+  },
+  fetchAndStoreLastMonthCarry = async (_0x37021b, _0x80a4d) => {
+    const _0x5d3553 = a3_0x4e5609;
+    try {
+      console[_0x5d3553(0x119)](
+        "🚀\x20Starting\x20Last\x20Month\x20Carry\x20Data\x20Sync..."
+      );
+      const _0xfe0d25 = await fetchSAPLastMonthCarry();
+      if (!Array["isArray"](_0xfe0d25) || _0xfe0d25["length"] === 0x0) {
+        console[_0x5d3553(0x118)](_0x5d3553(0x14b));
+        if (_0x80a4d)
+          return _0x80a4d["status"](0x190)[_0x5d3553(0x122)]({
+            message: _0x5d3553(0x155),
+          });
+        return;
+      }
+      console["log"](_0x5d3553(0x11b) + _0xfe0d25["length"] + "\x20records...");
+      const _0x17f2b5 = _0xfe0d25["map"]((_0x5e153e, _0x3bc6a0) => {
+        const _0x5aeb79 = _0x5d3553;
+        if (!_0x5e153e || typeof _0x5e153e !== "object")
+          return (
+            console["error"](_0x5aeb79(0x12f) + _0x3bc6a0 + ":", _0x5e153e),
+            null
+          );
+        return {
+          Vbeln: String(_0x5e153e?.[_0x5aeb79(0x13e)] || ""),
+          Posnr: String(_0x5e153e?.["Posnr"] || ""),
+          Vtweg: String(_0x5e153e?.[_0x5aeb79(0x144)] || ""),
+          Spart: String(_0x5e153e?.[_0x5aeb79(0x154)] || ""),
+          Fkart: String(_0x5e153e?.[_0x5aeb79(0x14a)] || ""),
+          Fktyp: String(_0x5e153e?.[_0x5aeb79(0x124)] || ""),
+          Vkorg: String(_0x5e153e?.["Vkorg"] || ""),
+          Waerk: String(_0x5e153e?.[_0x5aeb79(0x130)] || ""),
+          Gjahr: String(_0x5e153e?.[_0x5aeb79(0x152)] || ""),
+          Aubel: String(_0x5e153e?.[_0x5aeb79(0x12d)] || ""),
+          Aupos: String(_0x5e153e?.[_0x5aeb79(0x133)] || ""),
+          Netwr: convertToDecimal(_0x5e153e?.[_0x5aeb79(0x116)]),
+          Matnr: String(_0x5e153e?.[_0x5aeb79(0x11e)] || ""),
+          Fkimg: convertToDecimal(_0x5e153e?.["Fkimg"]),
+          Matkl: String(_0x5e153e?.["Matkl"] || ""),
+          Kwmeng: convertToDecimal(_0x5e153e?.["Kwmeng"]),
+          PendingQty: convertToDecimal(_0x5e153e?.["PendingQty"]),
+          OdrVal: convertToDecimal(_0x5e153e?.["OdrVal"]),
+          Kunnr: String(_0x5e153e?.[_0x5aeb79(0x13c)] || ""),
+          Kursk: convertToDecimal(_0x5e153e?.[_0x5aeb79(0x13d)]),
+          Bzirk: String(_0x5e153e?.[_0x5aeb79(0x149)] || ""),
+          Zone: String(_0x5e153e?.[_0x5aeb79(0x115)] || ""),
+          MonthD: String(_0x5e153e?.[_0x5aeb79(0x14f)] || ""),
+        };
+      })[_0x5d3553(0x131)](Boolean);
+      console["log"](
+        "📌\x20Final\x20Processed\x20Data:",
+        JSON[_0x5d3553(0x14d)](_0x17f2b5, null, 0x2)
+      );
+      const _0xfd94ce = await insertOrUpdateLastMonthCarry(_0x17f2b5);
+      if (
+        !_0xfd94ce ||
+        typeof _0xfd94ce !== _0x5d3553(0x128) ||
+        !_0xfd94ce["success"]
+      ) {
+        console[_0x5d3553(0x151)](
+          _0x5d3553(0x138),
+          _0xfd94ce?.[_0x5d3553(0x151)] || "Unknown\x20error"
+        );
+        if (_0x80a4d)
+          return _0x80a4d[_0x5d3553(0x11f)](0x1f4)[_0x5d3553(0x122)]({
+            message: _0x5d3553(0x11a),
+            error: _0xfd94ce?.[_0x5d3553(0x151)] || _0x5d3553(0x157),
+          });
+        return;
+      }
+      console[_0x5d3553(0x119)](
+        "✅\x20Last\x20Month\x20Carry\x20Data\x20Sync\x20Completed\x20Successfully"
+      );
+      if (_0x80a4d)
+        return _0x80a4d["status"](0xc8)[_0x5d3553(0x122)]({
+          message: _0x5d3553(0x150),
+          insertedRows: _0xfd94ce["processedRows"][_0x5d3553(0x156)],
+          updatedRows: _0xfd94ce[_0x5d3553(0x123)]["length"],
+          failedRows: _0xfd94ce[_0x5d3553(0x12c)][_0x5d3553(0x156)],
+          errors: _0xfd94ce["failedRows"],
+        });
+    } catch (_0x4d26db) {
+      console[_0x5d3553(0x151)](_0x5d3553(0x11d), _0x4d26db[_0x5d3553(0x13f)]);
+      if (_0x80a4d)
+        return _0x80a4d["status"](0x1f4)["json"]({
+          message: _0x5d3553(0x14e),
+          error: _0x4d26db[_0x5d3553(0x13f)],
+        });
+    }
+  };
+module[a3_0x4e5609(0x117)] = {
+  fetchAndStoreLastMonthCarry: fetchAndStoreLastMonthCarry,
+};

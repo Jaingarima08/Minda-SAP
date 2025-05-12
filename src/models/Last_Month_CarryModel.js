@@ -45,44 +45,46 @@ const insertOrUpdateLastMonthCarry = async (data) => {
           .input("Kursk", sql.Decimal(18, 5), parseDecimal(item.Kursk))
           .input("Bzirk", sql.VarChar, item.Bzirk || "")
           .input("Zone", sql.VarChar, item.Zone || "")
-          .query(`
-            MERGE INTO PRD_LastMonthCarry AS target
-            USING (SELECT @Vbeln AS Vbeln, @Posnr AS Posnr) AS source
-            ON target.Vbeln = source.Vbeln AND target.Posnr = source.Posnr
-            WHEN MATCHED THEN
-              UPDATE SET
-                Vtweg = @Vtweg,
-                Spart = @Spart,
-                Fkart = @Fkart,
-                Fktyp = @Fktyp,
-                Vkorg = @Vkorg,
-                Waerk = @Waerk,
-                Gjahr = @Gjahr,
-                Aubel = @Aubel,
-                Aupos = @Aupos,
-                Netwr = @Netwr,
-                Matnr = @Matnr,
-                Fkimg = @Fkimg,
-                Matkl = @Matkl,
-                Kwmeng = @Kwmeng,
-                PendingQty = @PendingQty,
-                OdrVal = @OdrVal,
-                Kunnr = @Kunnr,
-                Kursk = @Kursk,
-                Bzirk = @Bzirk,
-                Zone = @Zone
-            WHEN NOT MATCHED THEN
-              INSERT (
-                Vbeln, Posnr, Vtweg, Spart, Fkart, Fktyp, Vkorg, Waerk,
-                Gjahr, Aubel, Aupos, Netwr, Matnr, Fkimg, Matkl,
-                Kwmeng, PendingQty, OdrVal, Kunnr, Kursk, Bzirk, Zone
-              )
-              VALUES (
-                @Vbeln, @Posnr, @Vtweg, @Spart, @Fkart, @Fktyp, @Vkorg, @Waerk,
-                @Gjahr, @Aubel, @Aupos, @Netwr, @Matnr, @Fkimg, @Matkl,
-                @Kwmeng, @PendingQty, @OdrVal, @Kunnr, @Kursk, @Bzirk, @Zone
-              );
-          `);
+          .input("MonthD", sql.VarChar, item.MonthD || "")
+.query(`
+  MERGE INTO PRD_LastMonthCarry AS target
+  USING (SELECT @Vbeln AS Vbeln, @Posnr AS Posnr) AS source
+  ON target.Vbeln = source.Vbeln AND target.Posnr = source.Posnr
+  WHEN MATCHED THEN
+    UPDATE SET
+      Vtweg = @Vtweg,
+      Spart = @Spart,
+      Fkart = @Fkart,
+      Fktyp = @Fktyp,
+      Vkorg = @Vkorg,
+      Waerk = @Waerk,
+      Gjahr = @Gjahr,
+      Aubel = @Aubel,
+      Aupos = @Aupos,
+      Netwr = @Netwr,
+      Matnr = @Matnr,
+      Fkimg = @Fkimg,
+      Matkl = @Matkl,
+      Kwmeng = @Kwmeng,
+      PendingQty = @PendingQty,
+      OdrVal = @OdrVal,
+      Kunnr = @Kunnr,
+      Kursk = @Kursk,
+      Bzirk = @Bzirk,
+      Zone = @Zone,
+      MonthD = @MonthD
+  WHEN NOT MATCHED THEN
+    INSERT (
+      Vbeln, Posnr, Vtweg, Spart, Fkart, Fktyp, Vkorg, Waerk,
+      Gjahr, Aubel, Aupos, Netwr, Matnr, Fkimg, Matkl,
+      Kwmeng, PendingQty, OdrVal, Kunnr, Kursk, Bzirk, Zone, MonthD
+    )
+    VALUES (
+      @Vbeln, @Posnr, @Vtweg, @Spart, @Fkart, @Fktyp, @Vkorg, @Waerk,
+      @Gjahr, @Aubel, @Aupos, @Netwr, @Matnr, @Fkimg, @Matkl,
+      @Kwmeng, @PendingQty, @OdrVal, @Kunnr, @Kursk, @Bzirk, @Zone, @MonthD
+    );
+`);
 
         console.log(`✅ Upserted: Vbeln=${item.Vbeln}, Posnr=${item.Posnr}`);
       } catch (err) {

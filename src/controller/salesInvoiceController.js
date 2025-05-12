@@ -6,10 +6,23 @@ const API_URL = process.env.Sales_invoice_API;
 
 // Convert SAP Date format "/Date(1740355200000)/" to "YYYY-MM-DD HH:MM:SS"
 const convertSAPDateTime = (sapDate) => {
-  if (!sapDate || !sapDate.match(/\d+/)) return null;
-  const timestamp = parseInt(sapDate.match(/\d+/)[0], 10);
-  return new Date(timestamp).toISOString().replace("T", " ").split(".")[0];
+  if (!sapDate || typeof sapDate !== 'string') return null;
+
+  const match = sapDate.match(/\/Date\((\d+)(?:[+-]\d+)?\)\//);
+  if (!match) return null;
+
+  const timestamp = parseInt(match[1], 10);
+  const dateObj = new Date(timestamp);
+
+  const pad = (n) => n.toString().padStart(2, '0');
+
+  const formattedDate =
+    `${dateObj.getFullYear()}-${pad(dateObj.getMonth() + 1)}-${pad(dateObj.getDate())} ` +
+    `${pad(dateObj.getHours())}:${pad(dateObj.getMinutes())}:${pad(dateObj.getSeconds())}`;
+
+  return formattedDate;
 };
+
 
 // Convert string to decimal safely
 const convertToDecimal = (value) => {
