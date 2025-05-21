@@ -103,7 +103,9 @@ const fetchAndStoreSalesOrders = async (req, res) => {
         Waerk: String(order?.Waerk || ""),
         Matnr: String(order?.Matnr || ""),
         Matkl: String(order?.Matkl || ""),
-        Wgbez: String(order?.Wgbez || "")
+        Wgbez: String(order?.Wgbez || ""),
+        MonthD: String(order?.MonthD || ""),
+        MonthDesc: String(order?.MonthDesc || "")
       };      
     }).filter(Boolean);
 

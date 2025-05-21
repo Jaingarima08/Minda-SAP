@@ -91,6 +91,7 @@ const fetchAndStoreLastMonthCarry = async (req, res) => {
         Bzirk: String(item?.Bzirk || ""),
         Zone: String(item?.Zone || ""),
         MonthD: String(item?.MonthD || ""),
+        MonthDesc: String(item?.MonthDesc || "")
       };
     }).filter(Boolean); // Remove null entries
 

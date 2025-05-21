@@ -37,6 +37,8 @@ const insertOrUpdateSalesOrders = async (salesOrders) => {
           .input("Gjahr", sql.Int, order.Gjahr || null)
           .input("TotalInvoice", sql.Decimal(18, 3), parseFloat(order.TotalInvoice) || 0.000)
           .input("Kursk", sql.Decimal(18, 5), parseFloat(order.Kursk) || 0.00000)
+          .input("MonthD", sql.VarChar(20), order.MonthD)
+          .input("MonthDesc", sql.VarChar(20), order.MonthDesc)
           .query(`
             MERGE INTO PRD_SalesOrder AS target
             USING (SELECT @Vbeln AS Vbeln, @Posnr AS Posnr) AS source
@@ -61,15 +63,17 @@ const insertOrUpdateSalesOrders = async (salesOrders) => {
                 Vtweg = @Vtweg,
                 Gjahr = @Gjahr,
                 TotalInvoice = @TotalInvoice,
-                Kursk = @Kursk
+                Kursk = @Kursk,
+                MonthD = @MonthD,
+                MonthDesc = @MonthDesc
             WHEN NOT MATCHED THEN 
               INSERT (
                 Vbeln, Posnr, Kunnr, Erdat, Auart, Vkorg, Netwr, Waerk, Matnr, Matkl, Wgbez,
-                Spart, Vtext, Bzirk, Bztxt, Zone, PlannedOrder, Vtweg, Gjahr, TotalInvoice, Kursk
+                Spart, Vtext, Bzirk, Bztxt, Zone, PlannedOrder, Vtweg, Gjahr, TotalInvoice, Kursk, MonthD, MonthDesc
               )
               VALUES (
                 @Vbeln, @Posnr, @Kunnr, @Erdat, @Auart, @Vkorg, @Netwr, @Waerk, @Matnr, @Matkl, @Wgbez,
-                @Spart, @Vtext, @Bzirk, @Bztxt, @Zone, @PlannedOrder, @Vtweg, @Gjahr, @TotalInvoice, @Kursk
+                @Spart, @Vtext, @Bzirk, @Bztxt, @Zone, @PlannedOrder, @Vtweg, @Gjahr, @TotalInvoice, @Kursk, @MonthD, @MonthDesc
               );
           `);
 

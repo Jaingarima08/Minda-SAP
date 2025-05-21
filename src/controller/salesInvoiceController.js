@@ -112,7 +112,9 @@ const fetchAndStoreSalesInvoices = async (req, res) => {
         Waerk: String(invoice?.Waerk || ""),
         Gjahr: String(invoice?.Gjahr || ""),
         Fkdat: convertSAPDateTime(invoice?.Fkdat),
-        Aubel: String(invoice?.Aubel || "")
+        Aubel: String(invoice?.Aubel || ""),
+        MonthD: String(invoice?.MonthD || ""),
+        MonthDesc: String(invoice?.MonthDesc || "")
       };      
     }).filter(Boolean); // Remove null entries
 

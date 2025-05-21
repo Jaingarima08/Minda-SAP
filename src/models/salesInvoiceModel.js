@@ -52,6 +52,8 @@ const insertOrUpdateSalesInvoices = async (data) => {
         .input("Gjahr", sql.Int, parseInt(invoice.Gjahr) || null)
         .input("Fkdat", sql.DateTime, invoice.Fkdat)
         .input("Aubel", sql.VarChar, invoice.Aubel)
+        .input("MonthD", sql.VarChar(20), invoice.MonthD)
+        .input("MonthDesc", sql.VarChar(20), invoice.MonthDesc)
         .query(`
           MERGE INTO PRD_SalesInvoice AS target
           USING (SELECT @Vbeln AS Vbeln, @Posnr AS Posnr) AS source
@@ -77,10 +79,12 @@ const insertOrUpdateSalesInvoices = async (data) => {
               Waerk = @Waerk,
               Gjahr = @Gjahr,
               Fkdat = @Fkdat,
-              Aubel = @Aubel
+              Aubel = @Aubel,
+              MonthD = @MonthD,
+              MonthDesc = @MonthDesc
           WHEN NOT MATCHED THEN 
-            INSERT (Vbeln, Posnr, Matnr, PlannedOrder, Wgbez, Bzirk, Netwr, Vtweg, Matkl, TotalInvoice, Spart, Zone, Fkart, Kunag, Fktyp, Aupos, Werks, Vkorg, Waerk, Gjahr, Fkdat, Aubel)
-            VALUES (@Vbeln, @Posnr, @Matnr, @PlannedOrder, @Wgbez, @Bzirk, @Netwr, @Vtweg, @Matkl, @TotalInvoice, @Spart, @Zone, @Fkart, @Kunag, @Fktyp, @Aupos, @Werks, @Vkorg, @Waerk, @Gjahr, @Fkdat, @Aubel);
+            INSERT (Vbeln, Posnr, Matnr, PlannedOrder, Wgbez, Bzirk, Netwr, Vtweg, Matkl, TotalInvoice, Spart, Zone, Fkart, Kunag, Fktyp, Aupos, Werks, Vkorg, Waerk, Gjahr, Fkdat, Aubel, MonthD, MonthDesc)
+            VALUES (@Vbeln, @Posnr, @Matnr, @PlannedOrder, @Wgbez, @Bzirk, @Netwr, @Vtweg, @Matkl, @TotalInvoice, @Spart, @Zone, @Fkart, @Kunag, @Fktyp, @Aupos, @Werks, @Vkorg, @Waerk, @Gjahr, @Fkdat, @Aubel, @MonthD, @MonthDesc);
         `);
 
         console.log(`✅ Upserted: Vbeln=${invoice.Vbeln}, Posnr=${invoice.Posnr}`);

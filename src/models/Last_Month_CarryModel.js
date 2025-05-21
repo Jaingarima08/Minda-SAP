@@ -46,6 +46,7 @@ const insertOrUpdateLastMonthCarry = async (data) => {
           .input("Bzirk", sql.VarChar, item.Bzirk || "")
           .input("Zone", sql.VarChar, item.Zone || "")
           .input("MonthD", sql.VarChar, item.MonthD || "")
+          .input("MonthDesc", sql.VarChar(20), item.MonthDesc || "")
 .query(`
   MERGE INTO PRD_LastMonthCarry AS target
   USING (SELECT @Vbeln AS Vbeln, @Posnr AS Posnr) AS source
@@ -72,17 +73,18 @@ const insertOrUpdateLastMonthCarry = async (data) => {
       Kursk = @Kursk,
       Bzirk = @Bzirk,
       Zone = @Zone,
-      MonthD = @MonthD
+      MonthD = @MonthD,
+      MonthDesc = @MonthDesc
   WHEN NOT MATCHED THEN
     INSERT (
       Vbeln, Posnr, Vtweg, Spart, Fkart, Fktyp, Vkorg, Waerk,
       Gjahr, Aubel, Aupos, Netwr, Matnr, Fkimg, Matkl,
-      Kwmeng, PendingQty, OdrVal, Kunnr, Kursk, Bzirk, Zone, MonthD
+      Kwmeng, PendingQty, OdrVal, Kunnr, Kursk, Bzirk, Zone, MonthD, MonthDesc
     )
     VALUES (
       @Vbeln, @Posnr, @Vtweg, @Spart, @Fkart, @Fktyp, @Vkorg, @Waerk,
       @Gjahr, @Aubel, @Aupos, @Netwr, @Matnr, @Fkimg, @Matkl,
-      @Kwmeng, @PendingQty, @OdrVal, @Kunnr, @Kursk, @Bzirk, @Zone, @MonthD
+      @Kwmeng, @PendingQty, @OdrVal, @Kunnr, @Kursk, @Bzirk, @Zone, @MonthD, @MonthDesc
     );
 `);
 
